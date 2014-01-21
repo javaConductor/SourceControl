@@ -11,34 +11,57 @@
 </head>
 <body ng-controller="MathController">
 
-<form novalidate >
-
-    <table>
+    <form novalidate >
+    
+        <table width='100%' >
         <tr>
-            <td><input type="text" placeholder="Number" data-ng-model="number1"></td>
             <td>
-                <select
-                        ng-model="operation"
-                        ng-options="op.symbol for op in operations"
-                        >
-                </select>
+                <input type='text' data-ng-model='groupId' placeHolder='Group ID'>
             </td>
-            <td><input type="text" placeholder="Number" data-ng-model="number2"></td>
+            <td>
+                <input type='text' data-ng-model='artifactId' placeHolder='Artifact ID'>
+            </td>
+                <input type='text' data-ng-model='version' placeHolder='Version'>
+            </td>
         </tr>
         <tr>
-            <td  colspan="3">
-                <input type="button" value="Compute" ng-click="doCompute()"  >
+            <td colspan='3'>
+                <input type='file' data-ng-model='sourceFile' >
             </td>
-
         </tr>
+        <tr>
+            <td colspan='3'>
+                <textarea cols='120' rows='100' data-ng-model='sourceText' />
+            </td>
+        </tr>
+        <tr>
+            <td colspan='3'>
+                <button data-ng-click='saveSource()' > Save </button>
+            </td>
+        </tr>
+        </table>
+    </form>
+
+    <script type='text/ng-template' id='artifact.html'>
+        <tr>
+            <td colspan='3'>{{artifact.artifactId}}</td>
+        </tr>
+        <tr data-ng-repeat='sourceFile in artifact.files'>
+            <td></td>
+            <td>{{sourceFile.name}}</td>
+            <td></td>
+        </tr>
+    
+    </script>
+    <table width="100%">
+        <tr>
+            <th>Artifact</th>
+            <th>Files</th>
+            <th>Actions</th>
+        </tr>
+        
+        <tr ng-repeat='artifact in list' ng-include='artifact.html'></tr>
     </table>
-</form>
-<table width="100%">
-    <tr ng-init="answers=answers" ng-repeat="ans in answers" >
-        <th width="20%">{{$index+1}}</th>
-        <td width="80%">{{ans.message}}</td>
-    </tr>
-</table>
 
 </body>
 </html>
