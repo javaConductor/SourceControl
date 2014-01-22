@@ -46,3 +46,14 @@ theModule.config(function ($routeProvider) {
         redirectTo: '/'
       });
   });
+
+theModule.factory('SourceCodeService', ['$resource', '$location', function ($resource, $location) {
+        console.log("services/SourceCodeService.js - services:"+JSON.stringify(services));
+        /// create the Resource Object "/files/:groupId/:artifactId/:version"
+        var fileResource = $resource("/files/:groupId/:artifactId/:version")
+        return {
+            saveSourceFile: function(groupId, artifactId, version, filename, fileContent){
+
+            }
+        }
+    }]);
