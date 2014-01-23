@@ -5,8 +5,7 @@ package com.soulsys.gserv.testapps.sourcecontrol
  */
 class Main {
 
-
-    static void main(String[] args){
+    static void main(String[] args) {
 
         def svc = new SourceControlRestSvc()
 

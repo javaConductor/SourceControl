@@ -9,7 +9,7 @@ apply plugin: 'groovy'
 apply plugin: 'application'
 apply plugin: 'maven'
 
-mainClassName = 'com.soulsys.testapps.Main'
+mainClassName = 'com.soulsys.gserv.testapps.sourcecontrol.Main'
 group = "com.soulsys"
 version = "0.0.1"
 
@@ -26,6 +26,11 @@ dependencies {
     compile 'log4j:log4j:1.2.17'
     compile('org.codehaus.groovy:groovy-all:2.2.0')
     compile('org.codehaus.gpars:gpars:1.1.0')
+    compile('javax.inject:javax.inject:1')
+    compile('com.gmongo:gmongo:1.2')
+    compile('org.springframework:spring-core:4.0.0.RELEASE')
+    compile('org.springframework:spring-context:4.0.0.RELEASE')
+    compile('org.springframework:spring-beans:4.0.0.RELEASE')
 
     compile('com.soulsys:g-serv:0.0.1')
 
